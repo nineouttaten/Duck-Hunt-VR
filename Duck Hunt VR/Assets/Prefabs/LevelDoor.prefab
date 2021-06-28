@@ -106,7 +106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6199973837475924900}
   m_Layer: 0
-  m_Name: Cabinet
+  m_Name: LevelDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
