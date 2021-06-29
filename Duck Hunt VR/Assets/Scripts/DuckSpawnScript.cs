@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DuckSpawnScript : MonoBehaviour
 {
-    public float speed = 40;
+    public float speed = 1;
     public GameObject duck;
     public Transform spawn;
     public AudioSource audioSource;

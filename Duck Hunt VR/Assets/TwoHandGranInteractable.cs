@@ -12,7 +12,7 @@ public class TwoHandGranInteractable : XRGrabInteractable
     public bool SnapToSecondHand = true;
     private Quaternion intialRotationOffset;
 
-   
+    public GameObject left_hand;
 
    
     void Start()
@@ -66,15 +66,17 @@ public class TwoHandGranInteractable : XRGrabInteractable
     
     public void OnSecondHandGrab(SelectEnterEventArgs args)
     {
-       
+        
         secondInteractor = args.interactor;
         intialRotationOffset = Quaternion.Inverse(GetTwoHandRotation()) * secondInteractor.attachTransform.rotation;
+        left_hand.SetActive(true);
     }
 
     public void OnSecondHandRelease(SelectExitEventArgs args)
     {
         
         secondInteractor = null;
+        left_hand.SetActive(false);
     }
     
 

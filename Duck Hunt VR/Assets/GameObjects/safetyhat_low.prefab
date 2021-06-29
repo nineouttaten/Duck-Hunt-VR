@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2843673835813251568}
   - component: {fileID: 2843673837619724515}
   - component: {fileID: 551834979401520992}
+  - component: {fileID: 2808648788184353604}
+  - component: {fileID: 5570568825089004597}
   m_Layer: 7
   m_Name: safetyhat_low
   m_TagString: target
@@ -110,3 +112,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2245754, y: 0.17298217, z: 0.27196658}
   m_Center: {x: 0.0002480559, y: -0.086179234, z: 0.015453335}
+--- !u!54 &2808648788184353604
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2843673835811256112}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &5570568825089004597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2843673835811256112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36bb9fefcabc1274e8945b6cbaecda6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}

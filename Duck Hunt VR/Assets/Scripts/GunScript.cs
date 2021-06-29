@@ -27,7 +27,11 @@ public class GunScript : MonoBehaviour
         if (Physics.Raycast(raycastOrigin.position, raycastOrigin.TransformDirection(Vector3.forward), out hit,
             Mathf.Infinity, targetLayer))
         {
-            Debug.Log("popal");
+            if (hit.transform.GetComponent<ITargetInterface>() != null)
+            {
+                hit.transform.GetComponent<ITargetInterface>().TargetShot();
+            }
+
         }
     }
 }
