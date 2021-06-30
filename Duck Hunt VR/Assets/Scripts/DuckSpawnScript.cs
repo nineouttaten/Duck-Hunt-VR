@@ -13,7 +13,7 @@ public class DuckSpawnScript : MonoBehaviour
     public LayerMask targetLayer;
     public IEnumerator Spawn()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(0.5f);
         GameObject spawnedDuck = Instantiate(duck, spawn.position, spawn.rotation);
         //spawnedDuck.GetComponent<Rigidbody>().velocity = speed * spawn.forward;
         //audioSource.PlayOneShot(audioClip);
