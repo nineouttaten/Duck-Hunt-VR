@@ -9,7 +9,7 @@ public class TargetController : MonoBehaviour, ITargetInterface
     {
         rb = GetComponent<Rigidbody>();
         rb.useGravity = true;
-        GetComponent<FlyingScript>().enabled = false;
+        GetComponent<LineFlyingScript>().enabled = false;
     }
 
     public void PlayAnimation()
