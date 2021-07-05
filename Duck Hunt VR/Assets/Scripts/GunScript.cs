@@ -11,6 +11,7 @@ public class GunScript : MonoBehaviour
     public AudioClip audioClip;
     public Transform raycastOrigin;
     public LayerMask targetLayer;
+    public int numberOfKills = 0;
     public void Fire()
     {
         GameObject spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
@@ -30,6 +31,7 @@ public class GunScript : MonoBehaviour
             if (hit.transform.GetComponent<ITargetInterface>() != null)
             {
                 hit.transform.GetComponent<ITargetInterface>().TargetShot();
+                numberOfKills += 1;
             }
 
         }
