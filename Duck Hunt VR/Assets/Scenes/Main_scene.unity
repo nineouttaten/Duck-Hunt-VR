@@ -1694,7 +1694,9 @@ MonoBehaviour:
   sinusDuck: {fileID: 2957137097469341237, guid: 0136ae755cb75cf49b6755111dae72d7, type: 3}
   spawn: {fileID: 1863487389}
   audioSource: {fileID: 1045784794}
-  audioClip: {fileID: 8300000, guid: 6a7a22bfebc89764498b254cde6e424c, type: 3}
+  startGameClip: {fileID: 8300000, guid: 6a7a22bfebc89764498b254cde6e424c, type: 3}
+  wonWave: {fileID: 8300000, guid: 1a4e780b4ee174740ba7642f4f5b6d1e, type: 3}
+  loseWave: {fileID: 8300000, guid: ad3b1338f7524bf41bbddf14299d7b92, type: 3}
   raycastOrigin: {fileID: 0}
   targetLayer:
     serializedVersion: 2

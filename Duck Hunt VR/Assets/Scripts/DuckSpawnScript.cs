@@ -10,7 +10,9 @@ public class DuckSpawnScript : MonoBehaviour
     public GameObject sinusDuck;
     public Transform spawn;
     public AudioSource audioSource;
-    public AudioClip audioClip;
+    public AudioClip startGameClip;
+    public AudioClip wonWave;
+    public AudioClip loseWave;
     public Transform raycastOrigin;
     public LayerMask targetLayer;
     public GameObject gun;
@@ -54,18 +56,36 @@ public class DuckSpawnScript : MonoBehaviour
     public IEnumerator Game()
     {
         bool killedWave = false;
-        audioSource.PlayOneShot(audioClip);
-        yield return new WaitForSeconds(2.0f);
-        SpawnWave();
-        for (int i = 0; i < 15; i++)
+        audioSource.PlayOneShot(startGameClip);
+        yield return new WaitForSeconds(8.0f);
+        for (int i = 0; i < 5; i++)
         {
-            yield return new WaitForSeconds(1.0f);
-            if (CheckForKills())
+            SpawnWave();
+            for (int j = 0; j < 12; j++)
             {
-                killedWave = true;
-                break;
+                yield return new WaitForSeconds(1.0f);
+                if (CheckForKills())
+                {
+                    killedWave = true; 
+                    break;
+                }
             }
+
+            if (killedWave == true)
+            {
+                Debug.Log("ubil");
+                audioSource.PlayOneShot(wonWave);
+            }
+            else
+            {
+                Debug.Log("ne ubil");
+                audioSource.PlayOneShot(loseWave);
+            }
+
+            gun.GetComponent<GunScript>().numberOfKills = 0;
+            killedWave = false;
         }
+        
         Debug.Log("vse");
     }
 
