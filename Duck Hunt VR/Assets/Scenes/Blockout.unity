@@ -2158,11 +2158,14 @@ MonoBehaviour:
   bullet: {fileID: 6804990658058999119, guid: 65c9f6563c561ee4e8905d1e6a32548b, type: 3}
   barrel: {fileID: 375918636}
   audioSource: {fileID: 0}
-  audioClip: {fileID: 0}
+  fire: {fileID: 8300000, guid: 8602b7d5cd15c1943a50aa53f171c8cf, type: 3}
+  noammmo: {fileID: 8300000, guid: c454ec6537cbebf4dbdc82dd15dacd8e, type: 3}
+  reload: {fileID: 8300000, guid: a7debe386e320794293c7267fa3eac7a, type: 3}
   raycastOrigin: {fileID: 375918636}
   targetLayer:
     serializedVersion: 2
     m_Bits: 128
+  maxammo: 8
 --- !u!65 &426046702
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3350,8 +3353,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664167820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00025, y: -0.00476, z: -0}
-  m_LocalScale: {x: 0.0037113582, y: 0.0037113582, z: 0.0037113582}
+  m_LocalPosition: {x: -0.00025, y: -0.00476, z: 0.0004}
+  m_LocalScale: {x: 0.0021897012, y: 0.0021897012, z: 0.0021897012}
   m_Children: []
   m_Father: {fileID: 426046700}
   m_RootOrder: 5
