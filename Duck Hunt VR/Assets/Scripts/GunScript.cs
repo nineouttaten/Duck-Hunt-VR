@@ -16,32 +16,41 @@ public class GunScript : MonoBehaviour
     public Transform raycastOrigin;
     public LayerMask targetLayer;
     public int maxammo = 8;
-    private int currentammo;
+    private int _currentammo = 1;
 
     void Reload()
     {
-        currentammo = maxammo;
+        _currentammo = maxammo;
         audioSource.PlayOneShot(reload);
     }
 
     private void Update()
     {
-        if (currentammo < 0)
-            audioSource.PlayOneShot(noammmo);
+        //if (_currentammo == 0)
+          //  audioSource.PlayOneShot(noammmo);
 
-        if (Vector3.Angle(transform.up, Vector3.up) > 100 && currentammo < maxammo)
+        if (Vector3.Angle(transform.up, Vector3.up) > 100 && _currentammo < maxammo)
             Reload();
     }
 
     public void Fire()
     {
-        GameObject spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
+        if (_currentammo == 0)
+        {
+            audioSource.PlayOneShot(noammmo);
+        }
+            
+        else
+        {
+            GameObject spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
+                    
+            spawnedBullet.GetComponent<Rigidbody>().velocity = speed * barrel.forward;
+            _currentammo--;
+            //audioSource.PlayOneShot(audioClip);
+            Destroy(spawnedBullet, 2);
+            FireRaycast();
+        }
         
-        spawnedBullet.GetComponent<Rigidbody>().velocity = speed * barrel.forward;
-        currentammo--;
-        //audioSource.PlayOneShot(audioClip);
-        Destroy(spawnedBullet, 2);
-        FireRaycast();
     }
 
     private void FireRaycast()
