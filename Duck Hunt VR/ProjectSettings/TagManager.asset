@@ -6,6 +6,8 @@ TagManager:
   tags:
   - target
   - Magazine
+  - Unused
+  - Used
   layers:
   - Default
   - TransparentFX
