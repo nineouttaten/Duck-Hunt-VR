@@ -335,7 +335,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 242121021}
   m_LocalRotation: {x: -0, y: 0.70619655, z: -0, w: 0.7080159}
-  m_LocalPosition: {x: -105.833, y: 33.799, z: 10.834}
+  m_LocalPosition: {x: -115.18, y: 33.799, z: 10.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 616327210}
@@ -1014,7 +1014,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.08
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &666022367
 MonoBehaviour:
@@ -1031,7 +1031,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: -8679921383154817045, guid: 1c47f0ad0a292444fb62e9e6601c1568, type: 3}
+  m_ModelPrefab: {fileID: 134576065517394266, guid: bfd03519ee3b6ee47b59c6bcd285eedb, type: 3}
   m_ModelParent: {fileID: 0}
   m_Model: {fileID: 0}
   m_AnimateModel: 0
@@ -1820,7 +1820,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.08
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1082950739
 MonoBehaviour:
@@ -1837,7 +1837,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: -8679921383154817045, guid: ce2d9cf81ab1ce44ea9ca5e9afab1564, type: 3}
+  m_ModelPrefab: {fileID: 6019286514318719493, guid: f6075462e6fad0f45abef7762c615b28, type: 3}
   m_ModelParent: {fileID: 0}
   m_Model: {fileID: 0}
   m_AnimateModel: 0
@@ -2387,7 +2387,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1284511502
 PrefabInstance:
@@ -3773,7 +3773,7 @@ Transform:
   m_LocalScale: {x: 0.051670354, y: 0.051670354, z: 0.051670354}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: -0.022, y: 0, z: 0}
 --- !u!1 &1974927742
 GameObject:
@@ -3932,6 +3932,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 595295483907798751, guid: b3729eadfa1ddaf4f8e821b5d6dabe77, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.79
+      objectReference: {fileID: 0}
     - target: {fileID: 4381534872223770822, guid: b3729eadfa1ddaf4f8e821b5d6dabe77, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -4135,7 +4139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1505010321605747007, guid: 6463583e19df8e74392a7d22cd6716a5, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1505010321605747007, guid: 6463583e19df8e74392a7d22cd6716a5, type: 3}
       propertyPath: m_LocalPosition.x

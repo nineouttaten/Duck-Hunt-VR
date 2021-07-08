@@ -2702,11 +2702,14 @@ MonoBehaviour:
   sinusDuck: {fileID: 0}
   spawn: {fileID: 1851204338}
   audioSource: {fileID: 0}
-  audioClip: {fileID: 0}
+  startGameClip: {fileID: 0}
+  wonWave: {fileID: 0}
+  loseWave: {fileID: 0}
   raycastOrigin: {fileID: 0}
   targetLayer:
     serializedVersion: 2
     m_Bits: 128
+  gun: {fileID: 0}
 --- !u!1001 &1909962627
 PrefabInstance:
   m_ObjectHideFlags: 0
