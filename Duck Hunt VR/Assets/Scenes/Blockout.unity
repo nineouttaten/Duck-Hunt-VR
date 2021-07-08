@@ -2435,7 +2435,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 3
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -3688,8 +3688,6 @@ MonoBehaviour:
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
   targetTag: Magazine
-  targetTag1: Unused
-  targetTag2: Used
 --- !u!1 &669426274
 GameObject:
   m_ObjectHideFlags: 0
@@ -3805,7 +3803,7 @@ GameObject:
   - component: {fileID: 740328366}
   m_Layer: 9
   m_Name: Magazine
-  m_TagString: Unused
+  m_TagString: Magazine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -19,17 +19,12 @@ public class GunScript : MonoBehaviour
     public int maxammo = 8;
     private int _currentammo = 1;
     public TMPro.TextMeshPro ammoNumber;
-    public string typeOfMag;
 
     void Reload()
     {
         if (_currentammo == maxammo)
         {
-            if (typeOfMag == GameObject.FindGameObjectWithTag("Unused").ToString())
-            {
                 audioSource.PlayOneShot(reload);
-                GameObject.FindGameObjectWithTag("Unused").tag = "Used";
-            }
         }
             
     }
@@ -39,10 +34,8 @@ public class GunScript : MonoBehaviour
         //if (_currentammo == 0)
           //  audioSource.PlayOneShot(noammmo);
 
-        //if (Vector3.Angle(transform.up, Vector3.up) > 100 && _currentammo < maxammo)
-        if (_currentammo < maxammo)
+        if (Vector3.Angle(transform.up, Vector3.up) > 100 && _currentammo < maxammo)
         {   
-            if (typeOfMag == GameObject.FindGameObjectWithTag("Unused").ToString())
                 Reload();
         }
 
@@ -51,8 +44,6 @@ public class GunScript : MonoBehaviour
 
     public void Fire()
     {
-        if (typeOfMag == GameObject.FindGameObjectWithTag("Unused").ToString())
-            _currentammo = 0;
         
         if (_currentammo == 0)
         {
