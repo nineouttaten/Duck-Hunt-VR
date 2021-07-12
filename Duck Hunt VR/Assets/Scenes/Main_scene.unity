@@ -335,7 +335,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 242121021}
   m_LocalRotation: {x: -0, y: 0.70619655, z: -0, w: 0.7080159}
-  m_LocalPosition: {x: -115.18, y: 33.799, z: 10.81}
+  m_LocalPosition: {x: -106.59, y: 33.799, z: 10.833}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 616327210}
@@ -1690,8 +1690,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  lineDuck: {fileID: 2843673835811256112, guid: e32ec82a5d9a89d42a4e01579cc76242, type: 3}
-  sinusDuck: {fileID: 2957137097469341237, guid: 0136ae755cb75cf49b6755111dae72d7, type: 3}
+  lineDuck: {fileID: 4873916665341429503, guid: b631160231b4006479470b1b5e8ffa22, type: 3}
+  sinusDuck: {fileID: 4873916665341429503, guid: b631160231b4006479470b1b5e8ffa22, type: 3}
   spawn: {fileID: 1863487389}
   audioSource: {fileID: 1045784794}
   startGameClip: {fileID: 8300000, guid: 6a7a22bfebc89764498b254cde6e424c, type: 3}
