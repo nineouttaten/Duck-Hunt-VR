@@ -1,11 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = System.Random;
 
 public class DuckSpawnScript : MonoBehaviour
 {
+    
     public float speed = 1;
+    public Text gameText;
     public GameObject lineDuck;
     public GameObject sinusDuck;
     public Transform spawn;
@@ -16,6 +20,7 @@ public class DuckSpawnScript : MonoBehaviour
     public Transform raycastOrigin;
     public LayerMask targetLayer;
     public GameObject gun;
+    private int score = 0;
     private GameObject duck;
     private Vector3 randomSpawnPosition;
     private Random randomPos = new System.Random();
@@ -71,7 +76,7 @@ public class DuckSpawnScript : MonoBehaviour
                 }
             }
 
-            if (killedWave == true)
+            if (killedWave)
             {
                 Debug.Log("ubil");
                 audioSource.PlayOneShot(wonWave);
@@ -81,7 +86,8 @@ public class DuckSpawnScript : MonoBehaviour
                 Debug.Log("ne ubil");
                 audioSource.PlayOneShot(loseWave);
             }
-
+            score += 100 * gun.GetComponent<GunScript>().numberOfKills;
+            gameText.text = score.ToString();
             gun.GetComponent<GunScript>().numberOfKills = 0;
             killedWave = false;
         }
@@ -99,15 +105,6 @@ public class DuckSpawnScript : MonoBehaviour
         {
             return false;
         }
-    }
-    void Start()
-    {
-        //StartCoroutine(Spawn());
-    }
-
-    void Repeat()
-    {
-        //StartCoroutine(Spawn());
     }
     
 }

@@ -29,7 +29,6 @@ public class Hand : MonoBehaviour
     public void SetTrigger(float v)
     {
         triggerTarget = v;
-        Debug.Log(v);
     }
 
     void AnimateHand()
@@ -37,7 +36,6 @@ public class Hand : MonoBehaviour
         //Debug.Log("zashel");
         if (triggerCurrent != triggerTarget)
         {
-            Debug.Log("nazhal");
             triggerCurrent = Mathf.MoveTowards(triggerCurrent, triggerTarget, Time.deltaTime * speed);
             animator.SetFloat(animatorTriggerParam, triggerCurrent);
         }

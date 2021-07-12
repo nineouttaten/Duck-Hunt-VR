@@ -1,6 +1,6 @@
 public interface ITargetInterface
 {
-    void TargetShot();
+    bool TargetShot();
 
     void PlayAnimation();
 }
