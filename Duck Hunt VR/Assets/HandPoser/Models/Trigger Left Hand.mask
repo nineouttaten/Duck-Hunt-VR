@@ -6,7 +6,7 @@ AvatarMask:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Trigger
+  m_Name: Trigger Left Hand
   m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   m_Elements:
   - m_Path: 
@@ -26,15 +26,15 @@ AvatarMask:
   - m_Path: Root/wrist_l
     m_Weight: 1
   - m_Path: Root/wrist_l/finger_index_meta_l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/wrist_l/finger_index_meta_l/finger_index_0_l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/wrist_l/finger_index_meta_l/finger_index_0_l/finger_index_1_l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/wrist_l/finger_index_meta_l/finger_index_0_l/finger_index_1_l/finger_index_2_l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/wrist_l/finger_index_meta_l/finger_index_0_l/finger_index_1_l/finger_index_2_l/finger_index_l_end
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/wrist_l/finger_middle_meta_l
     m_Weight: 1
   - m_Path: Root/wrist_l/finger_middle_meta_l/finger_middle_0_l
@@ -66,12 +66,12 @@ AvatarMask:
   - m_Path: Root/wrist_l/finger_ring_meta_l/finger_ring_0_l/finger_ring_1_l/finger_ring_2_l/finger_ring_l_end
     m_Weight: 1
   - m_Path: Root/wrist_l/finger_thumb_0_l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/wrist_l/finger_thumb_0_l/finger_thumb_1_l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/wrist_l/finger_thumb_0_l/finger_thumb_1_l/finger_thumb_2_l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/wrist_l/finger_thumb_0_l/finger_thumb_1_l/finger_thumb_2_l/finger_thumb_l_end
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: vr_glove_left_slim
     m_Weight: 1
