@@ -291,6 +291,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 128
+  numberOfKills: 0
 --- !u!1 &7812989059395319738
 GameObject:
   m_ObjectHideFlags: 0
