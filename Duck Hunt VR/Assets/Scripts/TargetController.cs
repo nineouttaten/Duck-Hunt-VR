@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class TargetController : MonoBehaviour, ITargetInterface
 {
@@ -14,6 +15,7 @@ public class TargetController : MonoBehaviour, ITargetInterface
         {
             rb = GetComponent<Rigidbody>();
                     rb.useGravity = true;
+                    GetComponent<PlayableDirector>().enabled = false;
                     if (GetComponent<LineFlyingScript>())
                     {
                         GetComponent<LineFlyingScript>().enabled = false;

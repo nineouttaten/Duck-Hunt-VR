@@ -78,12 +78,12 @@ public class DuckSpawnScript : MonoBehaviour
 
             if (killedWave)
             {
-                Debug.Log("ubil");
+                //Debug.Log("ubil");
                 audioSource.PlayOneShot(wonWave);
             }
             else
             {
-                Debug.Log("ne ubil");
+                //Debug.Log("ne ubil");
                 audioSource.PlayOneShot(loseWave);
             }
             score += 100 * gun.GetComponent<GunScript>().numberOfKills;
