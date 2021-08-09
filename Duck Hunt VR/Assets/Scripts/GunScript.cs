@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,28 @@ public class GunScript : MonoBehaviour
     public LayerMask targetLayer;
     public int numberOfKills = 0;
     private bool shot;
+    public static int currentammo = 0;
+    public int maxammo = 8;
+
+    private void Start()
+    {
+        currentammo = 0;
+    }
+
+    void Reload()
+    {
+        currentammo = maxammo;
+        magazineAmmo.isUsed = 1;
+    }
+
+    private void Update()
+    {
+        if (currentammo < maxammo && magazineAmmo.isUsed == 0)
+        {   
+            Reload();
+        }
+    }
+
     public void Fire()
     {
         GameObject spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
@@ -20,6 +43,9 @@ public class GunScript : MonoBehaviour
         //audioSource.PlayOneShot(audioClip);
         Destroy(spawnedBullet, 2);
         FireRaycast();
+        currentammo--;
+        if (currentammo == 0)
+            magazineAmmo.isUsed = 1;
     }
 
     private void FireRaycast()
