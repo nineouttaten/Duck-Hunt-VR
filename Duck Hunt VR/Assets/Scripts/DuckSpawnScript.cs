@@ -57,11 +57,11 @@ public class DuckSpawnScript : MonoBehaviour
     public void StartGame()
     {
         StartCoroutine(Game());
+        audioSource.PlayOneShot(startGameClip);
     }
     public IEnumerator Game()
     {
         bool killedWave = false;
-        audioSource.PlayOneShot(startGameClip);
         yield return new WaitForSeconds(8.0f);
         for (int i = 0; i < 5; i++)
         {

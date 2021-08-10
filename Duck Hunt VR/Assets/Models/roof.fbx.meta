@@ -1,26 +1,8 @@
 fileFormatVersion: 2
-guid: 65b8077f9fcc33a40a226a9703e04c4d
+guid: e90f002b8bbacec4f9f7598515fc1ca1
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      74: -7571928258179720452
-    second: plane|ArmatureAction.010
-  - first:
-      74: 1044530932805461130
-    second: plane|plane.001Action
-  - first:
-      74: -1386627898803277815
-    second: plane|planeAction
-  - first:
-      74: -3191935414793443935
-    second: plane.001|ArmatureAction.010
-  - first:
-      74: -1428370952979274987
-    second: plane.001|plane.001Action
-  - first:
-      74: -387025074106904616
-    second: plane.001|planeAction
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -112,7 +94,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 

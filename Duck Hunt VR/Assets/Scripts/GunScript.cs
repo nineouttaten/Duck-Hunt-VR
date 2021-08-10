@@ -12,12 +12,12 @@ public class GunScript : MonoBehaviour
     public Transform raycastOrigin;
     public LayerMask targetLayer;
     public int numberOfKills = 0;
-    private bool shot;
+    private bool _shot;
     public void Fire()
     {
         GameObject spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
         spawnedBullet.GetComponent<Rigidbody>().velocity = speed * barrel.forward;
-        //audioSource.PlayOneShot(audioClip);
+        audioSource.PlayOneShot(audioClip);
         Destroy(spawnedBullet, 2);
         FireRaycast();
     }
@@ -26,18 +26,11 @@ public class GunScript : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(raycastOrigin.position, raycastOrigin.TransformDirection(Vector3.forward), out hit,
-            Mathf.Infinity, targetLayer))
-        {
-            if (hit.transform.GetComponent<ITargetInterface>() != null)
-            {
-                shot = hit.transform.GetComponent<ITargetInterface>().TargetShot();
-                if (shot)
-                {
-                    numberOfKills += 1;
-                }
-            }
-
-        }
+        if (!Physics.Raycast(raycastOrigin.position, raycastOrigin.TransformDirection(Vector3.forward), out hit,
+            Mathf.Infinity, targetLayer)) return;
+        if (hit.transform.GetComponent<ITargetInterface>() == null) return;
+        _shot = hit.transform.GetComponent<ITargetInterface>().TargetShot();
+        if (_shot) numberOfKills += 1;
+        
     }
 }
