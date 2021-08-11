@@ -27,6 +27,8 @@ public class RandomFlyer : MonoBehaviour
     void Start()
     {
         // Inititalize
+        //homeTarget = Transform.Find("SpawnObject");
+        //flyingTarget = Transform.Find("TargetObject");
         animator = GetComponent<Animator>();
         body = GetComponent<Rigidbody>();
         turnSpeedBackup = turnSpeed;
