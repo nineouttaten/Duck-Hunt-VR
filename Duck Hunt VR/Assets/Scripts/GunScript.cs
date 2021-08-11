@@ -27,7 +27,7 @@ public class GunScript : MonoBehaviour
 
         var spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
         spawnedBullet.GetComponent<Rigidbody>().velocity = speed * barrel.forward;
-        //audioSource.PlayOneShot(audioClip);
+        audioSource.PlayOneShot(audioClip);
         Destroy(spawnedBullet, 2);
         FireRaycast();
 
