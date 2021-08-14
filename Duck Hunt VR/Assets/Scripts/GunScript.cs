@@ -29,6 +29,7 @@ public class GunScript : MonoBehaviour
         spawnedBullet.GetComponent<Rigidbody>().velocity = speed * barrel.forward;
         audioSource.PlayOneShot(audioClip);
         Destroy(spawnedBullet, 2);
+        
         FireRaycast();
 
         magazine.AmmoCount--;

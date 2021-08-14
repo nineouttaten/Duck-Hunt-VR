@@ -15,9 +15,10 @@ public class TargetController : MonoBehaviour, ITargetInterface
         {
             _rigidbody = GetComponent<Rigidbody>();
             _rigidbody.useGravity = true;
-            GetComponent<PlayableDirector>().enabled = false;
+            GetComponent<Animator>().enabled = false;
             GetComponent<RandomFlyer>().enabled = false;
             audioSource.PlayOneShot(audioClip);
+            _killed = true;
         }
 
         return false;

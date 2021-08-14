@@ -10,8 +10,7 @@ public class DuckSpawnScript : MonoBehaviour
     
     public float speed = 1;
     public Text gameText;
-    public GameObject lineDuck;
-    public GameObject sinusDuck;
+    public GameObject Duck;
     public Transform spawn;
     public AudioSource audioSource;
     public AudioClip startGameClip;
@@ -21,7 +20,6 @@ public class DuckSpawnScript : MonoBehaviour
     public LayerMask targetLayer;
     public GameObject gun;
     private int score = 0;
-    private GameObject duck;
     private Vector3 randomSpawnPosition;
     private Random randomPos = new System.Random();
     private int typeOfDuck;
@@ -29,16 +27,8 @@ public class DuckSpawnScript : MonoBehaviour
     {
         randomSpawnPosition = spawn.position;
         randomSpawnPosition.z += randomPos.Next(-2, 2);
-        typeOfDuck = randomPos.Next(0, 3);
-        if (typeOfDuck == 0)
-        {
-            duck = lineDuck;
-        }
-        else
-        {
-            duck = sinusDuck;
-        }
-        GameObject spawnedDuck = Instantiate(duck, randomSpawnPosition, spawn.rotation);
+
+        GameObject spawnedDuck = Instantiate(Duck, randomSpawnPosition, spawn.rotation);
         //spawnedDuck.GetComponent<Rigidbody>().velocity = speed * spawn.forward;
         //Repeat();
     }
