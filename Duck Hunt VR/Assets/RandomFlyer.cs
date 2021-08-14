@@ -9,12 +9,12 @@ public class RandomFlyer : MonoBehaviour
 {
     [SerializeField] float idleSpeed, turnSpeed, switchSeconds, idleRatio;
     [SerializeField] Vector2 animSpeedMinMax, moveSpeedMinMax, changeAnimEveryFromTo, changeTargetEveryFromTo;
-    [SerializeField] Transform homeTarget, flyingTarget;
     [SerializeField] Vector2 radiusMinMax;
     [SerializeField] Vector2 yMinMax;
     [SerializeField] public bool returnToBase = false;
     [SerializeField] public float randomBaseOffset = 5, delayStart = 0f;
 
+    public Transform homeTarget, flyingTarget;
     private Animator animator;
     private Rigidbody body;
     [System.NonSerialized] public float changeTarget = 0f, changeAnim = 0f, timeSinceTarget = 0f, timeSinceAnim = 0f, prevAnim, currentAnim = 0f, prevSpeed, speed, zturn, prevz,
@@ -27,8 +27,8 @@ public class RandomFlyer : MonoBehaviour
     void Start()
     {
         // Inititalize
-        //homeTarget = Transform.Find("SpawnObject");
-        //flyingTarget = Transform.Find("TargetObject");
+        homeTarget = GameObject.FindWithTag("Spawn Duck").transform;
+        flyingTarget = GameObject.FindWithTag("Fly target").transform;
         animator = GetComponent<Animator>();
         body = GetComponent<Rigidbody>();
         turnSpeedBackup = turnSpeed;
