@@ -9,6 +9,7 @@ public class DuckSpawnScript : MonoBehaviour
 {
     
     public float speed = 1;
+    public GameObject startGameButton;
     public Text gameText;
     public GameObject Duck;
     public Transform spawn;
@@ -48,6 +49,7 @@ public class DuckSpawnScript : MonoBehaviour
     {
         StartCoroutine(Game());
         audioSource.PlayOneShot(startGameClip);
+        
     }
     public IEnumerator Game()
     {
@@ -56,7 +58,7 @@ public class DuckSpawnScript : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             SpawnWave();
-            for (int j = 0; j < 12; j++)
+            for (int j = 0; j < 120; j++)
             {
                 yield return new WaitForSeconds(1.0f);
                 if (CheckForKills())

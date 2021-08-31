@@ -19,6 +19,8 @@ public class TargetController : MonoBehaviour, ITargetInterface
             GetComponent<RandomFlyer>().enabled = false;
             audioSource.PlayOneShot(audioClip);
             _killed = true;
+
+            return true;
         }
 
         return false;
