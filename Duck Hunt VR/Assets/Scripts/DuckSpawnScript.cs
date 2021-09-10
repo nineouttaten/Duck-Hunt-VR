@@ -12,7 +12,7 @@ public class DuckSpawnScript : MonoBehaviour
     public GameObject startGameButton;
     public Text gameText;
     public GameObject Duck;
-    public Transform spawn;
+    public Transform[] spawn;
     public AudioSource audioSource;
     public AudioClip startGameClip;
     public AudioClip wonWave;
@@ -26,10 +26,9 @@ public class DuckSpawnScript : MonoBehaviour
     private int typeOfDuck;
     public void Spawn()
     {
-        randomSpawnPosition = spawn.position;
-        randomSpawnPosition.z += randomPos.Next(-2, 2);
+        randomSpawnPosition = spawn[randomPos.Next(0, 2)].position;
 
-        GameObject spawnedDuck = Instantiate(Duck, randomSpawnPosition, spawn.rotation);
+        GameObject spawnedDuck = Instantiate(Duck, randomSpawnPosition, spawn[0].rotation);
         //spawnedDuck.GetComponent<Rigidbody>().velocity = speed * spawn.forward;
         //Repeat();
     }
