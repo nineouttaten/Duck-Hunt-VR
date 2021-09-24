@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - target
+  - Magazine
+  - Spawn Duck
+  - Fly target
+  - Holster
   layers:
   - Default
   - TransparentFX
@@ -11,6 +16,19 @@ TagManager:
   - 
   - Water
   - UI
+  - grab
+  - target
+  - Grab ignore ray
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Door
   - 
   - 
   - 
@@ -21,22 +39,9 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Magazine
+  - Player
+  - Grab Interactible
   m_SortingLayers:
   - name: Default
     uniqueID: 0
