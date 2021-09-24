@@ -6,20 +6,20 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class GunScript : MonoBehaviour
 {
-    public float speed = 40;
-    public GameObject bullet;
-    public Transform barrel;
-    public AudioSource audioSource;
-    public AudioClip audioClip;
-    public Transform raycastOrigin;
-    public LayerMask targetLayer;
-    public int maxAmmo = 8;
+    [SerializeField] private float speed = 40;
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private Transform barrel;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClip;
+    [SerializeField] private Transform raycastOrigin;
+    [SerializeField] private LayerMask targetLayer;
+    [SerializeField] private int maxAmmo = 8;
+    
+    private bool _shot;
+    private MagazineAmmo _magazine;
+
     public int numberOfKills = 0;
-    private bool shot;
-
-    private MagazineAmmo magazine;
-
-    private bool IsLoaded => magazine != null && magazine.AmmoCount > 0;
+    private bool IsLoaded => _magazine != null && _magazine.AmmoCount > 0;
 
     public void Fire()
     {
@@ -32,37 +32,31 @@ public class GunScript : MonoBehaviour
         
         FireRaycast();
 
-        magazine.AmmoCount--;
+        _magazine.AmmoCount--;
     }
 
     public void SetMagazine(SelectEnterEventArgs args)
     {
         if (args.interactable.TryGetComponent<MagazineAmmo>(out var magazineAmmo))
         {
-            magazine = magazineAmmo;
+            _magazine = magazineAmmo;
         }
     }
 
     public void ClearMagazine(SelectExitEventArgs args)
     {
-        magazine = null;
+        _magazine = null;
     }
 
     private void FireRaycast()
     {
-        RaycastHit hit;
-
-        if (Physics.Raycast(raycastOrigin.position, raycastOrigin.TransformDirection(Vector3.forward), out hit,
-            Mathf.Infinity, targetLayer))
-        {
-            if (hit.transform.GetComponent<ITargetInterface>() != null)
-            {
-                shot = hit.transform.GetComponent<ITargetInterface>().TargetShot();
-                if (shot)
-                {
-                    numberOfKills += 1;
-                }
-            }
-        }
+        if (!Physics.Raycast(raycastOrigin.position, raycastOrigin.TransformDirection(Vector3.forward), out var hit,
+            Mathf.Infinity, targetLayer)) return;
+        
+        if (hit.transform.GetComponent<ITargetInterface>() == null) return;
+        
+        _shot = hit.transform.GetComponent<ITargetInterface>().TargetShot();
+        
+        if (_shot) { numberOfKills += 1; }
     }
 }

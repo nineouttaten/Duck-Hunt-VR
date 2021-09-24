@@ -4,41 +4,41 @@ using UnityEngine;
 using Random = System.Random;
 public class LineFlyingScript : MonoBehaviour
 {
-    public float horizontalSpeed;
-    public float verticalSpeed;
-    public float amplitude;
-    private float zDirection1;
-    private float zDirection2;
-    private float currentZDirection;
-    private float startTime;
+    [SerializeField] private float horizontalSpeed;
+    [SerializeField] private float verticalSpeed;
+    [SerializeField] private float amplitude;
+    private float _zDirection1;
+    private float _zDirection2;
+    private float _currentZDirection;
+    private float _startTime;
     public Vector3 tempPosition;
     
-    private Random random_dir = new System.Random();
+    private readonly Random _randomDir = new System.Random();
     private void Start()
     {
         tempPosition = transform.position;
-        zDirection1 = (float) (0.01 + random_dir.NextDouble() * 0.05);
-        zDirection2 = zDirection1 - zDirection1 * 2;
-        currentZDirection = zDirection1;
-        startTime = Time.time;
+        _zDirection1 = (float) (0.01 + _randomDir.NextDouble() * 0.05);
+        _zDirection2 = _zDirection1 - _zDirection1 * 2;
+        _currentZDirection = _zDirection1;
+        _startTime = Time.time;
     }
 
     private void FixedUpdate()
     {
-        if (Time.time - startTime >= 1.5 & Time.time - startTime <= 3)
+        if (Time.time - _startTime >= 1.5 & Time.time - _startTime <= 3)
         {
-            currentZDirection = zDirection2;
+            _currentZDirection = _zDirection2;
         }
 
-        if (Time.time - startTime >= 3)
+        if (Time.time - _startTime >= 3)
         {
-            currentZDirection = zDirection1;
+            _currentZDirection = _zDirection1;
         }
         tempPosition = transform.position;
         tempPosition.x += horizontalSpeed;
-        tempPosition.y += Mathf.Sin((Time.time - startTime) * verticalSpeed) * amplitude;
+        tempPosition.y += Mathf.Sin((Time.time - _startTime) * verticalSpeed) * amplitude;
         tempPosition.y += 0.03f;
-        tempPosition.z += currentZDirection;
+        tempPosition.z += _currentZDirection;
         transform.position = tempPosition;
         Destroy(gameObject, 6);
     }

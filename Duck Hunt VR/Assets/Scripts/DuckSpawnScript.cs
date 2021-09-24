@@ -2,42 +2,39 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = System.Random;
 
 public class DuckSpawnScript : MonoBehaviour
 {
     
-    public float speed = 1;
-    public GameObject startGameButton;
-    public Text gameText;
-    public GameObject Duck;
-    public Transform[] spawn;
-    public AudioSource audioSource;
-    public AudioClip startGameClip;
-    public AudioClip wonWave;
-    public AudioClip loseWave;
-    public Transform raycastOrigin;
-    public LayerMask targetLayer;
-    public GameObject gun;
-    private int score = 0;
-    private Vector3 randomSpawnPosition;
-    private Random randomPos = new System.Random();
-    private int typeOfDuck;
+    [SerializeField] private Text gameText;
+    [SerializeField] private GameObject duck;
+    [SerializeField] private Transform[] spawn;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip startGameClip;
+    [SerializeField] private AudioClip wonWave;
+    [SerializeField] private AudioClip loseWave;
+    [SerializeField] private GameObject gun;
+    
+    private int _score;
+    private Vector3 _randomSpawnPosition;
+    private readonly Random _randomPos = new Random();
     public void Spawn()
     {
-        randomSpawnPosition = spawn[randomPos.Next(0, 2)].position;
+        _randomSpawnPosition = spawn[_randomPos.Next(0, 2)].position;
 
-        GameObject spawnedDuck = Instantiate(Duck, randomSpawnPosition, spawn[0].rotation);
+        Instantiate(duck, _randomSpawnPosition, spawn[0].rotation);
         //spawnedDuck.GetComponent<Rigidbody>().velocity = speed * spawn.forward;
         //Repeat();
     }
 
-    public void SpawnWave()
+    private void SpawnWave()
     {
-        Invoke("Spawn", 1);
-        Invoke("Spawn", 2);
-        Invoke("Spawn", 3);
+        Invoke(nameof(Spawn), 1);
+        Invoke(nameof(Spawn), 2);
+        Invoke(nameof(Spawn), 3);
     }
     public IEnumerator Wait8Seconds()
     {
@@ -50,52 +47,35 @@ public class DuckSpawnScript : MonoBehaviour
         audioSource.PlayOneShot(startGameClip);
         
     }
-    public IEnumerator Game()
+    
+    private IEnumerator Game()
     {
-        bool killedWave = false;
+        var killedWave = false;
         yield return new WaitForSeconds(8.0f);
-        for (int i = 0; i < 5; i++)
+        for (var i = 0; i < 5; i++)
         {
             SpawnWave();
-            for (int j = 0; j < 120; j++)
+            for (var j = 0; j < 120; j++)
             {
                 yield return new WaitForSeconds(1.0f);
-                if (CheckForKills())
-                {
-                    killedWave = true; 
-                    break;
-                }
+                if (!CheckForKills()) continue;
+                killedWave = true; 
+                break;
             }
 
-            if (killedWave)
-            {
-                //Debug.Log("ubil");
-                audioSource.PlayOneShot(wonWave);
-            }
-            else
-            {
-                //Debug.Log("ne ubil");
-                audioSource.PlayOneShot(loseWave);
-            }
-            score += 100 * gun.GetComponent<GunScript>().numberOfKills;
-            gameText.text = score.ToString();
+            audioSource.PlayOneShot(killedWave ? wonWave : loseWave);
+            _score += 100 * gun.GetComponent<GunScript>().numberOfKills;
+            gameText.text = _score.ToString();
             gun.GetComponent<GunScript>().numberOfKills = 0;
             killedWave = false;
         }
         
         Debug.Log("vse");
     }
-
-    public bool CheckForKills()
+    
+    private bool CheckForKills()
     {
-        if (gun.GetComponent<GunScript>().numberOfKills == 3)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return gun.GetComponent<GunScript>().numberOfKills == 3;
     }
     
 }
